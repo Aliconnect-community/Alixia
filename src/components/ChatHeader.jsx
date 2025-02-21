@@ -11,7 +11,7 @@ const ChatHeader = ({ toggleSettings }) => {
           className="p-2 rounded-full hover:bg-[#ff3705]"
           aria-label="Open settings"
         >
-          <Settings size={20} />
+          <Settings size={30} />
         </button>
       </div>
     </header>
