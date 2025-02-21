@@ -2,22 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 html, body, #root {
   
-  width: 80%;
+  width: 100%;
   height: 100%;
-  margin: auto;
-  padding: auto;
   overflow-x: hidden;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 }
 
-* {
-  box-sizing: border-box;
-  
+@media (min-width: 768px) {
+  html, body, #root {
+    max-width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    }
 }
-
 
 a {
   font-weight: 500;
@@ -34,24 +37,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {

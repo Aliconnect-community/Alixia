@@ -14,8 +14,8 @@ const MessageList = ({ messages }) => {
       {messages.length === 0 ? (
         <div className="flex items-center justify-center h-full">
           <div className="text-center text-[gray-900]">
-            <p className="text-lg">Welcome to the Chat Assistant</p>
-            <p className="text-sm mt-2">Start a conversation or ask a question</p>
+            <p className="text-lg text-gray-950">Welcome to the Chat Assistant</p>
+            <p className="text-sm mt-2 text-gray-950">Start a conversation or ask a question</p>
           </div>
         </div>
       ) : (

@@ -3,7 +3,7 @@ import { Settings } from 'lucide-react';
 
 const ChatHeader = ({ toggleSettings }) => {
   return (
-    <header className="bg-[#ff3705] border-b shadow-sm p-4">
+    <header className="bg-[#ff3705] border-b shadow-sm p-4 sticky top-0 z-10">
       <div className="flex justify-between items-center">
         <h1 className="text-xl font-semibold text-gray-800">Alixia Chat Assistant</h1>
         <button 
