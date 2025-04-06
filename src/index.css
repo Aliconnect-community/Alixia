@@ -2,75 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
-html, body, #root {
-  
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+:root {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-@media (min-width: 768px) {
-  html, body, #root {
-    max-width: 80%;
-    margin: 0 auto;
-    height: 100%;
-    }
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Custom scrollbar for chat */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
 }
 
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
 }
 
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
 }
 
-/* Custom Responsive Styles */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5em;
-  }
-
-  button {
-    padding: 0.5em 1em;
-    font-size: 0.9em;
-  }
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2em;
-  }
-
-  button {
-    padding: 0.4em 0.8em;
-    font-size: 0.8em;
-  }
+/* Dark mode scrollbar */
+.dark .overflow-y-auto::-webkit-scrollbar-track {
+  background: #374151;
 }
+
+.dark .overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
