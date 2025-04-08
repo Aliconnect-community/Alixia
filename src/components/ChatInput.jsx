@@ -3,7 +3,14 @@
 import { useState, useRef, useEffect } from "react"
 import { Send, Mic, MicOff, Image, Loader } from "lucide-react"
 
-export default function ChatInput({ inputValue, setInputValue, handleSendMessage, darkMode, handleImageUpload }) {
+export default function ChatInput({
+  inputValue,
+  setInputValue,
+  handleSendMessage,
+  darkMode,
+  handleImageUpload,
+  isLoading,
+}) {
   const [isListening, setIsListening] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const fileInputRef = useRef(null)
@@ -115,6 +122,7 @@ export default function ChatInput({ inputValue, setInputValue, handleSendMessage
             onKeyDown={handleKeyDown}
             placeholder="Ask about products, shipping, or store policies..."
             className={`flex-1 ${darkMode ? "bg-transparent text-white placeholder-gray-400" : "bg-transparent text-gray-700"} outline-none text-sm`}
+            disabled={isLoading}
           />
 
           <div className="flex items-center space-x-2 ml-2">
@@ -122,7 +130,7 @@ export default function ChatInput({ inputValue, setInputValue, handleSendMessage
               onClick={() => fileInputRef.current.click()}
               className={`p-2 rounded-md ${darkMode ? "text-gray-300 hover:bg-gray-600" : "text-gray-500 hover:bg-gray-200"} transition-colors flex items-center`}
               aria-label="Upload image"
-              disabled={isUploading}
+              disabled={isUploading || isLoading}
             >
               {isUploading ? <Loader className="animate-spin" size={18} /> : <Image size={18} />}
               <span className="ml-1 text-sm hidden sm:inline">Image</span>
@@ -133,6 +141,7 @@ export default function ChatInput({ inputValue, setInputValue, handleSendMessage
               onClick={toggleListening}
               className={`p-2 rounded-md flex items-center ${isListening ? "bg-red-500 text-white" : darkMode ? "text-gray-300 hover:bg-gray-600" : "text-gray-500 hover:bg-gray-200"} transition-colors`}
               aria-label={isListening ? "Stop recording" : "Start voice recording"}
+              disabled={isLoading}
             >
               {isListening ? <MicOff size={18} /> : <Mic size={18} />}
               <span className="ml-1 text-sm hidden sm:inline">{isListening ? "Stop" : "Voice"}</span>
@@ -140,9 +149,9 @@ export default function ChatInput({ inputValue, setInputValue, handleSendMessage
 
             <button
               onClick={handleSendMessage}
-              disabled={inputValue.trim() === "" && !isListening}
+              disabled={(inputValue.trim() === "" && !isListening) || isLoading}
               className={`p-2 rounded-md flex items-center ${
-                inputValue.trim() === "" && !isListening
+                (inputValue.trim() === "" && !isListening) || isLoading
                   ? darkMode
                     ? "text-gray-500 cursor-not-allowed"
                     : "text-gray-400 cursor-not-allowed"
@@ -152,8 +161,8 @@ export default function ChatInput({ inputValue, setInputValue, handleSendMessage
               } transition-all`}
               aria-label="Send message"
             >
-              <Send size={18} />
-              <span className="ml-1 text-sm hidden sm:inline">Send</span>
+              {isLoading ? <Loader className="animate-spin" size={18} /> : <Send size={18} />}
+              <span className="ml-1 text-sm hidden sm:inline">{isLoading ? "Loading" : "Send"}</span>
             </button>
           </div>
         </div>

@@ -43,7 +43,7 @@ export default function ChatMessages({ messages, darkMode, fontSize }) {
               )}
               <div className={messageTextClass} dangerouslySetInnerHTML={{ __html: message.content }} />
               <p
-                className={`mt-1 ${timestampTextClass} ${message.sender === "user" ? (darkMode ? "text-purple-200" : "text-purple-100") : darkMode ? "text-gray-400" : "text-gray-500"}`}
+                className={`mt-1 ${timestampTextClass} ${message.sender === "user" ? (darkMode ? "text-200" : "text-100") : darkMode ? "text-gray-400" : "text-gray-500"}`}
               >
                 {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </p>

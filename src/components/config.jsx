@@ -31,7 +31,7 @@ export const products = [
   2. Always include: 
      - Product image: ![alt](image_url)
      - Link: [Buy here](product_url)
-     - Price: $XX.XX
+     - Price: NGNXX.XX
   3. Be friendly and concise.
   
   Products: ${JSON.stringify(products)}

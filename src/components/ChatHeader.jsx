@@ -47,15 +47,15 @@ export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isS
             </select>
           </div>
 
-          {/* Feature Indicators */}
+          {/* Feature Indicators 
           <div className="flex items-center space-x-2 mr-2">
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-purple-100 text-purple-800">
+            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-purple-100 text-800">
               <Mic size={12} className="mr-1" /> Voice
             </span>
             <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
               <Image size={12} className="mr-1" /> Images
             </span>
-          </div>
+          </div>*/}
 
           {/* Dark Mode Toggle */}
           <button
@@ -104,7 +104,7 @@ export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isS
               </select>
             </div>
 
-            {/* Feature Indicators */}
+            {/* Feature Indicators 
             <div className="flex space-x-2">
               <span className={`inline-flex items-center px-3 py-2 rounded-full text-xs ${darkMode ? "bg-purple-900 text-purple-100" : "bg-purple-100 text-purple-800"}`}>
                 <Mic size={12} className="mr-1" /> Voice
@@ -112,7 +112,7 @@ export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isS
               <span className={`inline-flex items-center px-3 py-2 rounded-full text-xs ${darkMode ? "bg-blue-900 text-blue-100" : "bg-blue-100 text-blue-800"}`}>
                 <Image size={12} className="mr-1" /> Images
               </span>
-            </div>
+            </div>*/}
 
             {/* Action Buttons */}
             <div className="flex space-x-2 pt-2">
