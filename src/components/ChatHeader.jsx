@@ -1,25 +1,36 @@
-"use client"
+import { Moon, Sun, Settings, Type, Menu, X } from "lucide-react";
+import { useState } from "react";
+import aliconnect_logo from "../assets/images/Aliconnect_logo.svg";
 
-import { Moon, Sun, Settings, Type, Image, Mic, Menu, X } from "lucide-react"
-import { useState } from "react"
-
-export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isSettingsOpen, fontSize, setFontSize }) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+export default function ChatHeader({
+  darkMode,
+  toggleDarkMode,
+  openSettings,
+  isSettingsOpen,
+  fontSize,
+  setFontSize,
+}) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header
-      className={`p-4 ${darkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"} border-b ${darkMode ? "border-gray-700" : "border-gray-200"}`}
+      className={`p-4 ${
+        darkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"
+      } border-b ${darkMode ? "border-gray-700" : "border-gray-200"}`}
     >
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center">
         {/* Logo and Mobile Menu Button */}
         <div className="w-full sm:w-auto flex justify-between items-center mb-4 sm:mb-0">
           <h1
-            className={`text-2xl font-bold ${darkMode ? "text-white" : "bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent"}`}
+            className={`text-2xl font-bold ${
+              darkMode
+                ? "text-white"
+                : "bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent"
+            }`}
           >
-          <img src="https://aliconnects.com/wp-content/uploads/2024/10/Frame-41.svg" alt="" className="h-10 w-15 mr-2" /> 
+            <img src={aliconnect_logo} alt="" className="h-10 w-15 mr-2" />
+          </h1>
 
-                   </h1>
-          
           {/* Mobile Menu Button */}
           <button
             className="sm:hidden p-2 rounded-md"
@@ -38,7 +49,11 @@ export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isS
             <select
               value={fontSize}
               onChange={(e) => setFontSize(e.target.value)}
-              className={`text-sm rounded-md ${darkMode ? "bg-gray-700 text-white border-gray-600" : "bg-white text-gray-800 border-gray-300"} border px-2 py-1`}
+              className={`text-sm rounded-md ${
+                darkMode
+                  ? "bg-gray-700 text-white border-gray-600"
+                  : "bg-white text-gray-800 border-gray-300"
+              } border px-2 py-1`}
             >
               <option value="small">Small</option>
               <option value="medium">Medium</option>
@@ -47,23 +62,23 @@ export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isS
             </select>
           </div>
 
-          {/* Feature Indicators 
-          <div className="flex items-center space-x-2 mr-2">
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-purple-100 text-800">
-              <Mic size={12} className="mr-1" /> Voice
-            </span>
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
-              <Image size={12} className="mr-1" /> Images
-            </span>
-          </div>*/}
-
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleDarkMode}
-            className={`p-2 rounded-md ${darkMode ? "bg-gray-700 hover:bg-gray-600" : "bg-gray-100 hover:bg-gray-200"} transition-colors flex items-center`}
-            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            className={`p-2 rounded-md ${
+              darkMode
+                ? "bg-gray-700 hover:bg-gray-600"
+                : "bg-gray-100 hover:bg-gray-200"
+            } transition-colors flex items-center`}
+            aria-label={
+              darkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
           >
-            {darkMode ? <Sun size={18} className="mr-1" /> : <Moon size={18} className="mr-1" />}
+            {darkMode ? (
+              <Sun size={18} className="mr-1" />
+            ) : (
+              <Moon size={18} className="mr-1" />
+            )}
             <span className="text-sm">{darkMode ? "Light" : "Dark"}</span>
           </button>
 
@@ -95,7 +110,11 @@ export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isS
               <select
                 value={fontSize}
                 onChange={(e) => setFontSize(e.target.value)}
-                className={`w-full text-sm rounded-md ${darkMode ? "bg-gray-700 text-white border-gray-600" : "bg-white text-gray-800 border-gray-300"} border px-2 py-2`}
+                className={`w-full text-sm rounded-md ${
+                  darkMode
+                    ? "bg-gray-700 text-white border-gray-600"
+                    : "bg-white text-gray-800 border-gray-300"
+                } border px-2 py-2`}
               >
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
@@ -104,24 +123,24 @@ export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isS
               </select>
             </div>
 
-            {/* Feature Indicators 
-            <div className="flex space-x-2">
-              <span className={`inline-flex items-center px-3 py-2 rounded-full text-xs ${darkMode ? "bg-purple-900 text-purple-100" : "bg-purple-100 text-purple-800"}`}>
-                <Mic size={12} className="mr-1" /> Voice
-              </span>
-              <span className={`inline-flex items-center px-3 py-2 rounded-full text-xs ${darkMode ? "bg-blue-900 text-blue-100" : "bg-blue-100 text-blue-800"}`}>
-                <Image size={12} className="mr-1" /> Images
-              </span>
-            </div>*/}
-
             {/* Action Buttons */}
             <div className="flex space-x-2 pt-2">
               <button
                 onClick={toggleDarkMode}
-                className={`flex-1 p-2 rounded-md ${darkMode ? "bg-gray-700 hover:bg-gray-600" : "bg-gray-100 hover:bg-gray-200"} transition-colors flex items-center justify-center`}
-                aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+                className={`flex-1 p-2 rounded-md ${
+                  darkMode
+                    ? "bg-gray-700 hover:bg-gray-600"
+                    : "bg-gray-100 hover:bg-gray-200"
+                } transition-colors flex items-center justify-center`}
+                aria-label={
+                  darkMode ? "Switch to light mode" : "Switch to dark mode"
+                }
               >
-                {darkMode ? <Sun size={18} className="mr-1" /> : <Moon size={18} className="mr-1" />}
+                {darkMode ? (
+                  <Sun size={18} className="mr-1" />
+                ) : (
+                  <Moon size={18} className="mr-1" />
+                )}
                 <span className="text-sm">{darkMode ? "Light" : "Dark"}</span>
               </button>
 
@@ -146,5 +165,5 @@ export default function ChatHeader({ darkMode, toggleDarkMode, openSettings, isS
         )}
       </div>
     </header>
-  )
+  );
 }
