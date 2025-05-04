@@ -86,7 +86,7 @@ export default function ChatInput({
 
   useEffect(() => {
     inputEle.current.focus();
-  },[])
+  }, []);
 
   return (
     <div

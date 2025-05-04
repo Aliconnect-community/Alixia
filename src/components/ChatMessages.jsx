@@ -58,7 +58,9 @@ export default function ChatMessages({
         ))}
         <div ref={messagesEndRef} />
         {isLoading && (
-          <div className={`thinking-container ${!darkMode?"bg-[#f8f8f8]" : "bg-gray-800" }`}>
+          <div
+            className={`thinking-container ${!darkMode ? "bg-[#f8f8f8]" : "bg-gray-800"}`}
+          >
             <div className="thinking-indicator">
               <span></span>
               <span></span>
