@@ -13,7 +13,7 @@ export const generateAIResponse = (
   userMessage,
   setIsLoading,
   setMessages,
-  soundEnabled,
+  soundEnabled
 ) => {
   setIsLoading((prev) => !prev);
   const API_URL = import.meta.env.VITE_API_ALIXIA_BACKEND;
@@ -31,15 +31,26 @@ export const generateAIResponse = (
       ]);
     })
     .catch((error) => {
-      console.error(`An Error Occured ${error}`);
-      setMessages((prev) => [
-        ...prev,
-        {
-          content: `I'm having trouble connecting to my knowledge base, failed to connect to service`,
-          sender: "bot",
-          timestamp: new Date(),
-        },
-      ]);
+      if (error.response && error.response.status === 500) {
+        console.error(`An Error Occured ${error}`);
+        setMessages((prev) => [
+          ...prev,
+          {
+            content: `A server error occured, please try again later`,
+            sender: "bot",
+            timestamp: new Date(),
+          },
+        ]);
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          {
+            content: `I'm having trouble connecting to my knowledge base, failed to connect to service`,
+            sender: "bot",
+            timestamp: new Date(),
+          },
+        ]);
+      }
     })
     .finally(() => {
       setIsLoading((prev) => !prev);
